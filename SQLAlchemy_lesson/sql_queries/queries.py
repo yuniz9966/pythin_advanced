@@ -3,9 +3,9 @@ from typing import Type
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError, DataError
 
-from SQLAlchemy_lesson.sqlalchemy_train.sql_queries.models import User, Role, Comment, News
-from SQLAlchemy_lesson.sqlalchemy_train.sql_queries.db_connection import DBConnection
-from SQLAlchemy_lesson.sqlalchemy_train.sql_queries import engine
+from SQLAlchemy_lesson.sql_queries.models import User, Role, Comment, News
+from SQLAlchemy_lesson.sql_queries.db_connection import DBConnection
+from SQLAlchemy_lesson.sql_queries import engine
 
 
 def create_new_role(session: Session, data: dict[str, str]) -> Role:
@@ -208,3 +208,20 @@ def get_all_roles(session: Session) -> list[Type[Role]] | None:
 #     for us in users_with_more_than_3_news:
 #         print(us.author_id, us.count_of_news)
 
+
+
+# with DBConnection(engine) as session:
+#     from sqlalchemy import func
+#     from sqlalchemy.orm import joinedload
+#
+#     news_info = session.query(
+#         News.title,
+#         News.moderated,
+#         News.author_id,
+#         User.rating.label("user_rating")
+#     ).join(User).filter(
+#         User.rating >= 6
+#     ).all()
+#
+#     for n in news_info:
+#         print(n.title, n.moderated, n.author_id, n.user_rating)
