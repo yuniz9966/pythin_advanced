@@ -15,7 +15,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
 
 
-from SQLAlchemy_lesson.sqlalchemy_train.sql_queries import Base, engine
+from SQLAlchemy_lesson.sql_queries import Base, engine
 
 
 class Role(Base):

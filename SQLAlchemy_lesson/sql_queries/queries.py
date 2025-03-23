@@ -28,17 +28,17 @@ def get_all_roles(session: Session) -> list[Type[Role]] | None:
     if all_roles:
         return all_roles
 
-# with DBConnection(engine) as session:
-#     # role_data = {
-#     #     'name': 'Client',
-#     # }
-#     # new_role = create_new_role(session=session, data=role_data)
-#     # print(f"объект успешно создан. Новая роль: {new_role.name}")
-#
-#     roles = get_all_roles(session=session)
-#
-#     for role in roles:
-#          print(f"Название роли - {role.name}")
+with DBConnection(engine) as session:
+    # role_data = {
+    #     'name': 'Client',
+    # }
+    # new_role = create_new_role(session=session, data=role_data)
+    # print(f"объект успешно создан. Новая роль: {new_role.name}")
+
+    roles = get_all_roles(session=session)
+
+    for role in roles:
+         print(f"Название роли - {role.name}")
 
 
 # with DBConnection(engine) as session:
